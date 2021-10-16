@@ -41,7 +41,18 @@
           <button class="btn btn-primary" id="seeProfile" onclick="seeProfile()">See Profile</button>
           <br>
           <br>
-          <button class="btn btn-primary" id="readMail" onclick="readMail()">Read Mail</button>
+          <button class="btn btn-primary" id="callFunc" onclick="callFunc()">Call Func</button>
+          <br>
+          <br>
+          <form>
+            <label for="fname">to:</label><br>
+            <input type="text" id="lto" name="lto"><br>
+            <label for="lname">msg:</label><br>
+            <input type="text" id="lmsg" name="lmsg">
+          </form>
+          <br>
+          <br>
+          <!-- <button class="btn btn-primary" id="readMail" onclick="readMail()">Read Mail</button> -->
         </div>
       </div>
     </div>
@@ -66,8 +77,8 @@
   <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
     crossorigin="anonymous"></script> -->
-    <script type="text/javascript" src="./popper.min.js"></script>
-    
+  <script type="text/javascript" src="./popper.min.js"></script>
+
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
@@ -82,6 +93,19 @@
   <script type="text/javascript" src="./authRedirect.js"></script>
   <!--<script type="text/javascript" src="./authPopup.js"></script>-->
   <script type="text/javascript" src="./graph.js"></script>
+  <script>
+    // function callCallFunc() {
+    //   // document.getElementById("lname").value = document.getElementById("fname").value;
+    //   var reciever = document.getElementById("lto").value;
+    //   var msg = document.getElementById("lmsg").value;
+
+    //   var returned
+    //   returned = callFunc(msg, to)
+    //   // document.getElementById("callFunc").value = "red;"
+    //   // document.getElementById("callFunc").value = "red;"
+    // }
+
+  </script>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 // Create the main myMSALObj instance
 // configuration parameters are located at authConfig.js
 const myMSALObj = new msal.PublicClientApplication(msalConfig);
+// const myMSALObjFunc = new msal.PublicClientApplication(msalConfig);
 
 let accessToken;
 let username = "";
@@ -61,11 +62,39 @@ function getTokenRedirect(request) {
         });
 }
 
+// function getTokenRedirectFunc(request) {
+//     /**
+//      * See here for more info on account retrieval:
+//      * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
+//      */
+//     request.account = myMSALObjFunc.getAccountByUsername(username);
+//     return myMSALObjFunc.acquireTokenSilent(request).catch(error => {
+//             console.warn("silent token acquisition fails. acquiring token using redirect");
+//             if (error instanceof msal.InteractionRequiredAuthError) {
+//                 // fallback to interaction when silent call fails
+//                 return myMSALObjFunc.acquireTokenRedirect(request);
+//             } else {
+//                 console.warn(error);
+//             }
+//         });
+// }
+
 function seeProfile() {
     getTokenRedirect(loginRequest).then(response => {
         callMSGraph(graphConfig.graphMeEndpoint, response.accessToken, updateUI);
         profileButton.classList.add('d-none');
         mailButton.classList.remove('d-none');
+    }).catch(error => {
+        console.error(error);
+    });
+}
+
+function callFunc() {
+    getTokenRedirect(funcRequest).then(response => {
+        console.log(response.accessToken);
+        callMSFunc(graphConfig.funcEndpoint, response.accessToken, updateUI);
+        // profileButton.classList.add('d-none');
+        // mailButton.classList.remove('d-none');
     }).catch(error => {
         console.error(error);
     });
