@@ -1,24 +1,36 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const argv = require('yargs')
+   .usage('Usage: $0 -p [PORT]')
+   .alias('p', 'port')
+   .describe('port', '(Optional) Port Number - default is 3000')
+   .strict()
+   .argv;
 
-const DEFAULT_PORT = process.env.PORT || 3000;
+const DEFAULT_PORT = 3000;
 
-// initialize express.
+//initialize express.
 const app = express();
 
 // Initialize variables.
-let port = DEFAULT_PORT;
+let port = DEFAULT_PORT; // -p {PORT} || 3000;
+if (argv.p) {
+   port = argv.p;
+}
 
 // Configure morgan module to log all requests.
 app.use(morgan('dev'));
 
-// Setup app folders.
+// Set the front-end folder to serve public assets.
+app.use("/lib", express.static(path.join(__dirname, "../../lib/msal-browser/lib")));
+
+// Setup app folders
 app.use(express.static('app'));
 
-// Set up a route for index.html
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/index.html'));
+// Set up a route for index.html.
+app.get('*', function (req, res) {
+   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 // Start the server.

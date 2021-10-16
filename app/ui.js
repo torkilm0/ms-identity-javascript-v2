@@ -6,10 +6,10 @@ const mailButton = document.getElementById("readMail");
 const profileButton = document.getElementById("seeProfile");
 const profileDiv = document.getElementById("profile-div");
 
-function showWelcomeMessage(username) {
+function showWelcomeMessage(account) {
     // Reconfiguring DOM elements
     cardDiv.style.display = 'initial';
-    welcomeDiv.innerHTML = `Welcome ${username}`;
+    welcomeDiv.innerHTML = `Welcome ${account.username}`;
     signInButton.setAttribute("onclick", "signOut();");
     signInButton.setAttribute('class', "btn btn-success")
     signInButton.innerHTML = "Sign Out";
@@ -19,7 +19,6 @@ function updateUI(data, endpoint) {
     console.log('Graph API responded at: ' + new Date().toString());
 
     if (endpoint === graphConfig.graphMeEndpoint) {
-        profileDiv.innerHTML = ''
         const title = document.createElement('p');
         title.innerHTML = "<strong>Title: </strong>" + data.jobTitle;
         const email = document.createElement('p');
@@ -34,14 +33,12 @@ function updateUI(data, endpoint) {
         profileDiv.appendChild(address);
 
     } else if (endpoint === graphConfig.graphMailEndpoint) {
-        if (!data.value) {
-            alert("You do not have a mailbox!")
-        } else if (data.value.length < 1) {
+        if (data.value.length < 1) {
             alert("Your mailbox is empty!")
         } else {
-            const tabContent = document.getElementById("nav-tabContent");
             const tabList = document.getElementById("list-tab");
             tabList.innerHTML = ''; // clear tabList at each readMail call
+            const tabContent = document.getElementById("nav-tabContent");
 
             data.value.map((d, i) => {
                 // Keeping it simple
