@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>Tutorial | MSAL.js JavaScript SPA</title>
+  <title>Elite-Tjenesten</title>
 
   <!-- IE support: add promises polyfill before msal.js  -->
   <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bluebird@3.7.2/js/browser/bluebird.min.js"></script> -->
@@ -20,7 +20,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">Microsoft identity platform</a>
+    <a class="navbar-brand" href="/">Elite-Tjenesten</a>
     <div class="btn-group ml-auto dropleft">
       <button type="button" id="SignIn" class="btn btn-secondary" onclick="signIn()">
         Sign In
@@ -28,20 +28,20 @@
     </div>
   </nav>
   <br>
-  <h5 class="card-header text-center">JavaScript SPA calling Microsoft Graph API with MSAL.js</h5>
+  <h5 class="card-header text-center">Toolbox</h5>
   <br>
   <div class="row" style="margin:auto">
     <div id="card-div" class="col-md-3" style="display:none">
       <div class="card text-center">
         <div class="card-body">
-          <h5 class="card-title" id="WelcomeMessage">Please sign-in to see your profile and read your mails</h5>
+          <h5 class="card-title" id="WelcomeMessage">Please sign-in to see the stuff</h5>
           <div id="profile-div"></div>
           <br>
           <br>
           <button class="btn btn-primary" id="seeProfile" onclick="seeProfile()">See Profile</button>
           <br>
           <br>
-          <button class="btn btn-primary" id="callFunc" onclick="callFunc()">Call Func</button>
+          <button class="btn btn-primary" id="callFunc" onclick="callFunc()">Send SMS</button>
           <br>
           <br>
           <form>
