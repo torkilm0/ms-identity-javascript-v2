@@ -7,9 +7,7 @@
   <title>Elite-Tjenesten</title>
 
   <!-- IE support: add promises polyfill before msal.js  -->
-  <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bluebird@3.7.2/js/browser/bluebird.min.js"></script> -->
   <script type="text/javascript" src="./bluebird.min.js"></script>
-  <!-- <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.0.0-beta.4/js/msal-browser.js" integrity="sha384-7sxY2tN3GMVE5jXH2RL9AdbO6s46vUh9lUid4yNCHJMUzDoj+0N4ve6rLOmR88yN" crossorigin="anonymous"></script> -->
   <script type="text/javascript" src="./msal-browser.js"></script>
 
   <!-- adding Bootstrap 4 for UI components  -->
@@ -27,47 +25,33 @@
     </div>
   </nav>
   <br>
-  <h5 class="card-header text-center">Toolbox</h5>
+  <h5 id="topHeader" class="card-header text-center">Toolbox</h5>
   <br>
   <div class="row" style="margin:auto">
-    <div id="card-div" class="col-md-3" style="display:none">
-      <div class="card text-center">
+    <!-- <div id="card-div" class="col-md-3" style="display:none"> -->
+      <div id="center-card-div" style="display:none" class="card text-center">
         <div class="card-body">
           <h5 class="card-title" id="WelcomeMessage">Please sign-in to see the stuff</h5>
           <div id="profile-div"></div>
           <br>
-          <br>
-          <button class="btn btn-primary" id="seeProfile" onclick="seeProfile()">See Profile</button>
-          <br>
-          <br>
-          <button class="btn btn-primary" id="btn1" onclick="btn1()">btn1</button>
-          <br>
-          <br>
+
           <form>
-            <label for="fname">to:</label><br>
-            <input type="text" id="lto" name="lto"><br>
-            <label for="lname">msg:</label><br>
-            <input type="text" id="lmsg" name="lmsg">
+            <label for="oldMachine">New Machine:</label>
+            <input type="text" id="oldMachine" name="oldMachine"><br><br>
+            <label for="newMachine">Old Machine</label>
+            <input type="text" id="newMachine" name="newMachine"><br><br>
           </form>
+          <br>
+          <button class="btn btn-primary" id="Compare" onclick="compare()">Compare</button>
+
           <br>
           <br>
           <div id="magic-id" class="magic-class"></div>
-          <!-- <button class="btn btn-primary" id="readMail" onclick="readMail()">Read Mail</button> -->
-        </div>
+        <!-- </div> -->
       </div>
     </div>
     <br>
     <br>
-    <!-- <div class="col-md-4">
-      <div class="list-group" id="list-tab" role="tablist">
-      </div>
-    </div>
-    <div class="col-md-5">
-      <div class="tab-content" id="nav-tabContent">
-      </div>
-    </div> -->
-
-    <!-- <div id="card-div" class="magic" style="display:none"> -->
   </div>
   </div>
   <br>
@@ -77,11 +61,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script> -->
   <script type="text/javascript" src="./popper.min.js"></script>
-
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
@@ -95,23 +75,10 @@
   <!-- uncomment the above line and comment the line below if you would like to use the redirect flow -->
   <script type="text/javascript" src="./graph.js"></script>
   <script type="text/javascript" src="./authRedirect.js"></script>
-  <!--<script type="text/javascript" src="./authPopup.js"></script>-->
-
-  <!-- <script type="text/javascript" src="./Fetch.js"></script> -->
-  <!-- <script type="text/javascript" src="./buildHtml.js"></script> -->
-  <script>
-    // function callCallFunc() {
-    //   // document.getElementById("lname").value = document.getElementById("fname").value;
-    //   var reciever = document.getElementById("lto").value;
-    //   var msg = document.getElementById("lmsg").value;
-
-    //   var returned
-    //   returned = callFunc(msg, to)
-    //   // document.getElementById("callFunc").value = "red;"
-    //   // document.getElementById("callFunc").value = "red;"
-    // }
-
-  </script>
+  <style>
+    table, tr {border:hidden;margin-left:auto;margin-right:auto;}
+    td, th {border:hidden;margin-left:auto;margin-right:auto;}
+    </style>
 </body>
 
 </html>
